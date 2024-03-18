@@ -7,7 +7,8 @@ def add(request):
     if request.method == 'POST':
         task = Task(title = request.POST['title'], done = request.POST['done'])
         task.save()
-        context = {'task': task}
+    tasks = Task.objects.all()
+    context = {'tasks': tasks}
     return render(request, 'index.html', context=context)
 
 
@@ -23,13 +24,15 @@ def edit(request, id):
     return render(request, 'index.html', context=context)
 
 def delete(request, id):
-    if request.method == 'DELETE':
+    if request.method == 'POST':
         Task.objects.filter(id=id).delete() 
-    return render(request, 'index.html')
+    tasks = Task.objects.all()
+    context = {'tasks': tasks}    
+    return render(request, 'index.html', context=context)
 
 def list(request):
     context = {}
     if request.method == 'GET':
         tasks = Task.objects.all()
         context = {'tasks': tasks}
-    return render(request, 'index.html', context)
+    return render(request, 'index.html', context=context)
