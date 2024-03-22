@@ -1,4 +1,6 @@
 from django.urls import path
+from django.conf import settings
+from django.conf.urls.static import static
 
 from . import views
 
@@ -7,4 +9,4 @@ urlpatterns = [
     path('index/<int:id>/edit', views.edit, name='todo.views.edit'),
     path('index/<int:id>/delete', views.delete, name='todo.views.delete'),
     path('index/', views.list, name='todo.views.list'),
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

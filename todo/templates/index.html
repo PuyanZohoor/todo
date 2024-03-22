@@ -1,15 +1,19 @@
+{% load static %}
+
 <!DOCTYPE html>
 
 
 <html>
 
 <head>
+    <link rel="stylesheet" href=" {% static 'css/mystyle.css' %} ">
     <title>todo page</title>
 </head>
 
 <body>
     <h1>
         <center>TO DO LIST</center>
+        <hr width="70%;" color="Black" size="2">
     </h1><br />
     <br />
     <br />
@@ -17,53 +21,64 @@
     <br />
 
     <div class="main">
-        <center>
+            <center>
             <!-- Create a Form -->
             <form method="POST" target="_self" action="{% url 'todo.views.add' %}">
                 <!-- Security token by Django -->
                 {% csrf_token %}
-
+                
                 <!-- form as paragraph -->
-                <input type="text" name="title" style="font-size: 18pt; height: 40px; width:800px; ">
+                <p, style="font-size: large;">Add your tasks:</p>
+                    <input type="text" name="title" placeholder="  Your Task..." class="three" style="font-size: 18pt; height: 40px; width:700px;
+                    " ><br /><br />
+                
+                    <fieldset>
+                        <legend, style="font-size: 10pt; height: 40px; ">Done or not:</legend>
 
-                <fieldset>
-                    <legend>Done or not:</legend>
-                  
-                    <div>
-                      <input type="radio" name="done" value=1 checked />
-                      <label for="huey">Done</label>
-                    </div>
-                  
-                    <div>
-                      <input type="radio" name="done" value=0 />
-                      <label for="dewey">Not Complete yet</label>
-                    </div>
-                  
-                  </fieldset>
+                            <div>
+                                <input type="radio" name="done" value=1 checked />
+                                <label for="huey">Done</label>
+                            </div>
 
-                <input type="submit" value="Add" , style="font-size: 18pt; height: 40px; width:200px; color:blue; ">
+                            <div>
+                                <input type="radio" name="done" value=0 />
+                                <label for="dewey">Not Complete yet</label>
+                            </div>
+
+                    </fieldset><br />
+
+                    <input type="submit" value="Add" class="one"
+                        style="font-size: 18pt; height: 40px; width:100px; color: black; ">
             </form>
 
-            <hr width="100%;" color="Black" size="5">
+            <hr style="order: none;
+                            border-top: 5px dotted black;
+                            position: relative;
+                            bottom: 70px;
+                            color: black;
+                            width: 100%;">
 
             <div class="main">
-                <center>
+                
 
-                    {% for data in tasks %}.
-
+                    {% for data in tasks %}
+                    <hr width="80%" color="black"><br>
                     <div>
                         {{ data.title }}<br />
-                        {{ data.done }}<br />
+                        {% if  data.done  %}
+                        <p class="two" style="color: green;">(Done.)</p>
+                        {% else %}
+                        <p class="two" style="position: relative; bottom: 50px;">(Not Complete Yet.)</p>
+                        {% endif %}
                         <form method="POST" target="_self" action="{% url 'todo.views.delete' data.pk %}">
                             {% csrf_token %}
-                            <input type="submit" value="X" , style="font-size: 18pt; height: 40px; width:200px; color:blue; ">
+                            <input type="submit" value="X" class="two">
                         </form>
-                        <hr />
                     </div>
 
                     {% endfor %}
 
-                </center>
+                
             </div><br />
 </body>
 
