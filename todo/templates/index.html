@@ -13,7 +13,7 @@
 <body>
     <h1>
         <center>TO DO LIST</center>
-        <hr width="70%;" color="Black" size="2">
+        <hr width="70%;" color="Black" size="3">
     </h1><br />
     <br />
     <br />
@@ -21,17 +21,17 @@
     <br />
 
     <div class="main">
-            <center>
+        <center>
             <!-- Create a Form -->
             <form method="POST" target="_self" action="{% url 'todo.views.add' %}">
                 <!-- Security token by Django -->
                 {% csrf_token %}
-                
+
                 <!-- form as paragraph -->
                 <p, style="font-size: large;">Add your tasks:</p>
-                    <input type="text" name="title" placeholder="  Your Task..." class="three" style="font-size: 18pt; height: 40px; width:700px;
-                    " ><br /><br />
-                
+                    <input type="text" name="title" placeholder="  Your Task..." style="font-size: 15pt; height: 40px; width:700px;
+                    "><br /><br />
+
                     <fieldset>
                         <legend, style="font-size: 10pt; height: 40px; ">Done or not:</legend>
 
@@ -48,7 +48,7 @@
                     </fieldset><br />
 
                     <input type="submit" value="Add" class="one"
-                        style="font-size: 18pt; height: 40px; width:100px; color: black; ">
+                        style="font-size: 14pt; height: 40px; width:100px; color: black; ">
             </form>
 
             <hr style="order: none;
@@ -59,26 +59,28 @@
                             width: 100%;">
 
             <div class="main">
-                
 
-                    {% for data in tasks %}
-                    <hr width="80%" color="black"><br>
-                    <div>
-                        {{ data.title }}<br />
-                        {% if  data.done  %}
-                        <p class="two" style="color: green;">(Done.)</p>
-                        {% else %}
-                        <p class="two" style="position: relative; bottom: 50px;">(Not Complete Yet.)</p>
-                        {% endif %}
-                        <form method="POST" target="_self" action="{% url 'todo.views.delete' data.pk %}">
-                            {% csrf_token %}
-                            <input type="submit" value="X" class="two">
-                        </form>
-                    </div>
 
-                    {% endfor %}
+                {% for data in tasks %}
+                <hr width="100%" color="black" size="1px"><br>
+                <div>
+                    {{ data.title }}
+                    {% if data.done %}
+                    <img src="{% static 'images/ggg.png' %}"  class="gggs">
+                    {% else %}
+                        <img src="{% static 'images/gg.png' %}"  class="ggs">
+                    {% endif %}
+                    <form method="POST" target="_self" action="{% url 'todo.views.delete' data.pk %}">
+                        {% csrf_token %}
+                        <button type="submit" class="two" style="display: flex;
+                            justify-content: center;
+                            align-items: center;"><img src="{% static 'images/trash.jpg' %}" class="pose"></button>
+                    </form>
+                </div>
 
-                
+                {% endfor %}
+
+
             </div><br />
 </body>
 
