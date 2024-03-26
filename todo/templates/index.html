@@ -22,12 +22,8 @@
 
     <div class="main">
         <center>
-            <!-- Create a Form -->
             <form method="POST" target="_self" action="{% url 'todo.views.add' %}">
-                <!-- Security token by Django -->
                 {% csrf_token %}
-
-                <!-- form as paragraph -->
                 <p, style="font-size: large;">Add your tasks:</p>
                     <input type="text" name="title" placeholder="  Your Task..." style="font-size: 15pt; height: 40px; width:700px;
                     "><br /><br />
