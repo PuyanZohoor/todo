@@ -1,0 +1,28 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link rel="stylesheet" href=" {% static 'css/signstyle.css' %} ">
+</head>
+
+<body>
+    <h1><center>Welcome to Sign Up page!</center></h1>
+    <div>
+    <form action="{% url 'todo.views.sign_up' %}" method="POST">
+        {% csrf_token %}
+        <label for="username" class="one">Username:</label><br/>
+        <input id="username" type="text" name="username"><br/>
+        <label for="password" class="one">Password:</label><br/>
+        <input id="password" type="password" name="password"><br/>
+        <label for="email" class="one">Email:</label><br/>
+        <input id="email" type="email" name="email"><br/>
+        <input type="submit" value="Sign Up">
+    </form><br/><br/><br/><br/>
+    </div>
+
+
+</body>
+
+</html>

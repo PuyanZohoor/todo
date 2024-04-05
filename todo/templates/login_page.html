@@ -1,0 +1,26 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link rel="stylesheet" href=" {% static 'css/loginstyle.css' %} ">
+</head>
+
+<body>
+    <h1><center>Welcome to Login page!</center></h1>
+    <div>
+    <form action="{% url 'todo.views.login_page' %}" method="POST">  
+        {% csrf_token %}
+        <label for="username" class="one">Username:</label><br/>
+        <input id="username" type="text" name="username"><br/>
+        <label for="password" class="one">Password:</label><br/>
+        <input id="password" type="password" name="password"><br/>
+        <input type="submit" value="Log In">
+    </form>
+    </div>
+
+<a href="{% url 'todo.views.sign_up' %}">didn't sign up? click here!</a>
+</body>
+
+</html>

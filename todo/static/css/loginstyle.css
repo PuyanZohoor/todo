@@ -1,0 +1,81 @@
+input[type=text], select {
+    width: 30%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    box-sizing: border-box;
+    position: relative;
+    top: 20px;
+    left: 250px;
+  }
+
+  input[type=password], select {
+    width: 30%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    box-sizing: border-box;
+    position: relative;
+    top: 20px;
+    left: 250px;
+  }  
+
+  
+  input[type=submit] {
+    width: 10%;
+    background-color: #4c9daf;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    position: relative;
+    top: 30px;
+    left: 325px;
+  }
+  
+  input[type=submit]:hover {
+    background-color: #456ca0;
+  }
+
+  div {
+    width: 50%;
+    border-radius: 50px;
+    background-color: #f2f2f2;
+    padding: 70px 5px;
+    position: relative;
+    top: 150px;
+    left: 375px;
+  }
+
+  .one {
+    position: relative;
+    top: 10px;
+    left: 150px;
+  }
+
+  body {
+    background-color: rgb(108, 180, 156);
+  
+  }
+
+  a {
+    font-size: large;
+    color: navy;
+    position: relative;
+    top: 70px;
+    left: 900px;
+  }
+
+  a:hover {
+    color: rgb(80, 120, 153);
+  }
+
+  a:active {
+    color: rgb(139, 52, 139);
+  }
