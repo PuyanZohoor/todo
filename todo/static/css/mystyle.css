@@ -64,4 +64,10 @@ img.pose {
     height:50px;
     color: white;
     background-color: rgb(202, 11, 11);
+    cursor: pointer;
+    
+}
+
+.four:hover {
+    background-color: rgb(237, 81, 81);
 }
